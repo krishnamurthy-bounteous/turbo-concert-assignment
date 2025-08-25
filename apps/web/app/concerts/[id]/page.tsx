@@ -8,8 +8,6 @@ Your task:
 4) Avoid hydration issues (e.g., date formatting) and keep imports server-safe.
 */
 
-export const dynamic = "force-dynamic";
-
 interface PageProps {
   params: Promise<{ id: string }>;
 }

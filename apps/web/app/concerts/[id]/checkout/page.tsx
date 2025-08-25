@@ -1,10 +1,5 @@
 /*
-Assignment (Problem): This page must be a Client Component.
-- The 'use client' directive was intentionally removed.
-Your task:
-1) Add 'use client' at the top to enable hooks (`useParams`, `useQuery`).
-2) After successful registration, invalidate the `['concert', id]` query so availability refreshes.
-3) Ensure no hydration issues from inputs or environment access.
+Assignment (Problem): This page must be a Client Component. Make the necessary changes
 */
 
 /* Client Side Rendering */
