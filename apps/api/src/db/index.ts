@@ -1,9 +1,9 @@
-import { neon } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
 
 import env from "@/env";
 
 import * as schema from "./schemas";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 
 function createDb() {
   const databaseUrl = env.DATABASE_URL;
@@ -15,8 +15,11 @@ function createDb() {
   }
 
   try {
-    const sql = neon(databaseUrl);
-    return drizzle(sql, { schema });
+    const pool = new Pool({
+      connectionString: databaseUrl,
+    });
+    
+    return drizzle(pool, { schema });
   } catch (error) {
     throw new Error("Failed to initialize database connection", {
       cause: error as unknown,

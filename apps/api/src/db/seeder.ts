@@ -1,12 +1,7 @@
 import "dotenv/config";
-import { drizzle } from "drizzle-orm/neon-http";
-import { neon } from "@neondatabase/serverless";
 import { artists, venues, concerts, zones, featuredContent } from "./schemas";
 import seedData from "@/db/seedData";
-import env from "@/env";
-
-const sql = neon(env.DATABASE_URL);
-const db = drizzle(sql);
+import { db } from "./index";
 
 async function main() {
   try {
